@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "lastTrained": "2026-03-12",
+  "weights": {
+    "w1": 0.12395038282606996,
+    "w2": 0.12477558948239298,
+    "w3": 0.4284068178328874,
+    "w4": -0.20987139811632535,
+    "bias": 0.0036586578458984564
+  },
+  "metadata": {
+    "trainingIterations": 1000,
+    "learningRate": 0.01,
+    "trainingDataCount": 10
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "vaxocare-backend",
+  "version": "1.0.0",
+  "description": "Vaxocare - Smart Vaccination Management System Backend",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "vaccination",
+    "healthcare",
+    "mern",
+    "ai"
+  ],
+  "author": "Vaxocare Team",
+  "license": "ISC",
+  "resolutions": {
+    "glob": "^7.2.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.7",
+    "redis": "^5.11.0",
+    "socket.io": "^4.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "openapi-types": "^12.1.3"
+  }
+}
