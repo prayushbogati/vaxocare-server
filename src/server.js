@@ -59,8 +59,10 @@ io.on("connection", (socket) => {
 
 // Middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || "*",
+  origin: 'https://vaxocare.vercel.app',
+  credentials: true
 }));
+
 app.use(express.json());
 // Needed so route controllers can read req.body for form-urlencoded requests as well
 app.use(express.urlencoded({ extended: false }));
