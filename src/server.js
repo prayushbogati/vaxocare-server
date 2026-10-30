@@ -38,12 +38,22 @@ const getServerUrl = () => {
 };
 
 // Socket.io setup
+// --- UPDATED SOCKET.IO SETUP ---
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "*",
+    origin: (origin, callback) => {
+      // Allow Socket.io connection if origin is empty or matches allowed list
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS (Socket.io)"));
+      }
+    },
     methods: ["GET", "POST"],
+    credentials: true // Matches your app's middleware setting
   },
 });
+
 
 // Store io instance for use in routes
 app.set("io", io);
@@ -61,6 +71,7 @@ io.on("connection", (socket) => {
 const allowedOrigins = [
     "https://vaxocare.vercel.app",
     "http://localhost:5173",
+    "http://localhost:3000",
 ];
 
 app.use(cors({
