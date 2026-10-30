@@ -58,9 +58,21 @@ io.on("connection", (socket) => {
 });
 
 // Middleware
+const allowedOrigins = [
+    "https://vaxocare.vercel.app",
+    "http://localhost:5173",
+];
+
 app.use(cors({
-  origin: 'https://vaxocare.vercel.app',
-  credentials: true
+    origin: (origin, callback) => {
+        // allow requests with no origin (Postman, curl, server-to-server)
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true,  // only needed if you use cookies / auth headers
 }));
 
 app.use(express.json());
